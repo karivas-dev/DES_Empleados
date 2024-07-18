@@ -6,21 +6,21 @@ namespace DES_Empleados.Models
     {
         //nombre, el apellido, la fecha de contratación y el puesto
         [Required]
-        public string id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string name { get; set; }
+        public string Name { get; set; }
         
         [Required]
         [StringLength(50)]
-        public string lastname { get; set; }
+        public string Lastname { get; set; }
 
         [Required]
-        public DateTime hireDate { get; set; }
+        public DateTime HireDate { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string position { get; set; }
+        public string Position { get; set; }
     }
 }
