@@ -19,10 +19,17 @@ namespace DES_Empleados.Controllers
         }
 
         // GET: ProjectAssignments
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var employeesDBContext = _context.ProjectAssignments.Include(p => p.Employee).Include(p => p.Project);
-            return View(await employeesDBContext.ToListAsync());
+            if(_context.ProjectAssignments == null)
+            {
+                return Problem("El contexto es nulo.");
+            }
+
+            
+                var projectAssignment = _context.ProjectAssignments.Include(p => p.Employee).Include(p => p.Project).Where(s => string.IsNullOrEmpty(searchString) || s.Project.Name!.Contains(searchString));
+            //var employeesDBContext = _context.ProjectAssignments.Include(p => p.Employee).Include(p => p.Project);
+            return View(await projectAssignment.ToListAsync());
         }
 
         // GET: ProjectAssignments/Details/5

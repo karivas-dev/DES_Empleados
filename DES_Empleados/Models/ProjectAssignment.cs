@@ -20,6 +20,8 @@ namespace DES_Empleados.Models
         public Project? Project { get; set; }
 
         [Required]
+        [Display(Name = "Assignment date")]
+        [DataType(DataType.Date)]
         public DateTime AssignmentDate { get; set; }
 
         [Required]

@@ -17,6 +17,8 @@ namespace DES_Empleados.Models
         public string Description { get; set; }
 
         [Required]
+        [Display(Name = "Starting date")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
     }
 }
